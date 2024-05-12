@@ -12,9 +12,7 @@ function handleFormSubmit(event){
       ph:phone,
     }
   
-    let udSerialized=JSON.stringify(UserDetails);
-  
-    localStorage.setItem(UserDetails.user,udSerialized);
+    localStorage.setItem(UserDetails.user,JSON.stringify(UserDetails));
 
     let udDeserialized=JSON.parse(localStorage.getItem(UserDetails.user));
 

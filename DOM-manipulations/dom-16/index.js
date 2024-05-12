@@ -12,21 +12,18 @@ function handleFormSubmit(event) {
       phone: phone
     };
   
-    // Retrieve existing user details array from localStorage
+   
     const existingUserDetails = JSON.parse(localStorage.getItem('UserDetails')) || [];
   
-    // Add the new user details to the array
     existingUserDetails.push(userDetails);
   
-    // Store the updated user details array back into localStorage
     localStorage.setItem('UserDetails', JSON.stringify(existingUserDetails));
-  
-    // Update the displayed user list
+
     displayUserList(existingUserDetails);
-  
-    // Clear the input fields after form submission
+
     event.target.reset();
   }
+  
   
   // Function to display user details in the list
   function displayUserList(userDetailsArray) {
