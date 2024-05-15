@@ -44,6 +44,8 @@ listItem.appendChild(editButton);
 listItem.appendChild(deleteBtn);
 userList.appendChild(listItem);
 
+ 
+
 editButton.addEventListener('click',function(){
     axios
     .delete(`https://crudcrud.com/api/e87e3fe7253849d4a19bca062dde099b/user/${userDetails._id}`)
@@ -53,7 +55,7 @@ editButton.addEventListener('click',function(){
     .catch((err)=>{
         console.log(err);
     })
-
+    
     const user=document.querySelector('#username');
     const emal=document.querySelector('#email');
     const phone=document.querySelector('#phone');
@@ -64,6 +66,7 @@ editButton.addEventListener('click',function(){
 })
 
 deleteBtn.addEventListener('click',function(){
+  
     axios
     .delete(`https://crudcrud.com/api/e87e3fe7253849d4a19bca062dde099b/user/${userDetails._id}`)
     .then(()=>{
