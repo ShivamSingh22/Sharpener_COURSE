@@ -41,8 +41,10 @@ function displayExpenseList(expenseDetailsArray) {
             const updatedExpenseDetails = expenseDetailsArray.filter(
                 expense => expense.amount !== expenseDetails.amount
             );
-            localStorage.setItem('ExpenseDetails', JSON.stringify(updatedExpenseDetails));
+            expenseDetailsArray=updatedExpenseDetails
 
+            localStorage.setItem('ExpenseDetails', JSON.stringify(expenseDetailsArray));
+            
             document.getElementById('exp').value = expenseDetails.amount;
             document.getElementById('desc').value = expenseDetails.description;
             document.getElementById('ctg').value = expenseDetails.category;
@@ -55,7 +57,11 @@ function displayExpenseList(expenseDetailsArray) {
             const updatedExpenseDetails = expenseDetailsArray.filter(
                 expense => expense.amount !== expenseDetails.amount
             );
-            localStorage.setItem('ExpenseDetails', JSON.stringify(updatedExpenseDetails));
+            expenseDetailsArray=updatedExpenseDetails
+            
+            console.log(updatedExpenseDetails);
+            localStorage.setItem('ExpenseDetails', JSON.stringify(expenseDetailsArray));
+           
         });
 
         li.textContent = `${expenseDetails.amount} - ${expenseDetails.description} - ${expenseDetails.category}`;
@@ -64,6 +70,11 @@ function displayExpenseList(expenseDetailsArray) {
         ul.appendChild(li);
     });
 }
+window.addEventListener("DOMContentLoaded",()=>{
+        
+    const storedExpenses = JSON.parse(localStorage.getItem('ExpenseDetails')) || [];
+    displayExpenseList(storedExpenses);
+})
 
 
 
