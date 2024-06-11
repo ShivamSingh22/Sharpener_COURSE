@@ -29,7 +29,7 @@ function handleFormSubmit(event) {
   };
 
   axios
-    .post("https://crudcrud.com/api/d1401165f8fc483abd1058ccd8ec47dd/blog", obj)
+    .post("https://crudcrud.com/api/652f423abae54968aabdffc88590c2a2/blog", obj)
     .then((res) => {
       displayBlogDetails(res.data);
     })
@@ -74,7 +74,7 @@ function displayBlogDetails(blogDetails) {
   editButton.addEventListener('click',function(){
     changeBlogCount(false);
       axios
-      .delete(`https://crudcrud.com/api/d1401165f8fc483abd1058ccd8ec47dd/blog/${blogDetails._id}`)
+      .delete(`https://crudcrud.com/api/652f423abae54968aabdffc88590c2a2/blog/${blogDetails._id}`)
       .then(()=>{
           userList.removeChild(listItem);
       })
@@ -94,7 +94,7 @@ function displayBlogDetails(blogDetails) {
   deleteButton.addEventListener('click', function () {
     changeBlogCount(false);
     axios
-      .delete(`https://crudcrud.com/api/d1401165f8fc483abd1058ccd8ec47dd/blog/${blogDetails._id}`)
+      .delete(`https://crudcrud.com/api/652f423abae54968aabdffc88590c2a2/blog/${blogDetails._id}`)
       .then(() => {
         
         userList.removeChild(listItem);
@@ -107,7 +107,7 @@ function displayBlogDetails(blogDetails) {
 
 document.addEventListener('DOMContentLoaded',function(){
   axios
-    .get("https://crudcrud.com/api/d1401165f8fc483abd1058ccd8ec47dd/blog")
+    .get("https://crudcrud.com/api/652f423abae54968aabdffc88590c2a2/blog")
     .then((res)=>{
       const prevData=res.data;
       console.log(prevData);

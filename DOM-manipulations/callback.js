@@ -1,94 +1,100 @@
-// setTimeout(() => console.log('timer1 expired'), 5000)
+console.log(b);
 
-// setTimeout(() => console.log('timer2 expired'), 0)
+console.log(a);
+let a=5;
+const b=6;
 
-// function x(y) {
+// // setTimeout(() => console.log('timer1 expired'), 5000)
 
-// console.log('inside x');
+// // setTimeout(() => console.log('timer2 expired'), 0)
 
-// y();
+// // function x(y) {
 
-// }
+// // console.log('inside x');
 
-// x(function y(){
+// // y();
 
-// setTimeout(() => console.log('inside y'), 0)
+// // }
 
-// })
+// // x(function y(){
 
-//_______
+// // setTimeout(() => console.log('inside y'), 0)
 
-// console.log('start')
+// // })
 
-// setTimeout(() => {
+// //_______
 
-//   console.log('setTimeout')
+// // console.log('start')
 
-// })
+// // setTimeout(() => {
 
-// Promise.resolve().then(() => {
+// //   console.log('setTimeout')
 
-//   console.log('resolve')
+// // })
 
-// })
+// // Promise.resolve().then(() => {
 
-// console.log('end')
+// //   console.log('resolve')
 
-//'''''''''''''''''''''''''''''''''''''''''''''
+// // })
+
+// // console.log('end')
+
+// //'''''''''''''''''''''''''''''''''''''''''''''
+
+
+// // const timer1 = setTimeout(() => {
+
+// //     console.log('timer1');
+  
+    
+  
+// //     const promise1 = Promise.resolve().then(() => {
+  
+// //       console.log('promise1')
+  
+// //     })
+  
+// //   }, 0)
+  
+  
+  
+// //   const timer2 = setTimeout(() => {
+  
+// //     console.log('timer2')
+  
+// //   }, 0)
+
+// console.log('start');
+
+
+
+// const promise1 = Promise.resolve().then(() => {
+
+//   console.log('promise1');
+
+//   const timer2 = setTimeout(() => {
+
+//     console.log('timer2')
+
+//   }, 0)
+
+// });
+
 
 
 // const timer1 = setTimeout(() => {
 
-//     console.log('timer1');
-  
-    
-  
-//     const promise1 = Promise.resolve().then(() => {
-  
-//       console.log('promise1')
-  
-//     })
-  
-//   }, 0)
-  
-  
-  
-//   const timer2 = setTimeout(() => {
-  
-//     console.log('timer2')
-  
-//   }, 0)
+//   console.log('timer1')
 
-console.log('start');
+//   const promise2 = Promise.resolve().then(() => {
+
+//     console.log('promise2')
+
+//   })
+
+// }, 0)
 
 
 
-const promise1 = Promise.resolve().then(() => {
-
-  console.log('promise1');
-
-  const timer2 = setTimeout(() => {
-
-    console.log('timer2')
-
-  }, 0)
-
-});
-
-
-
-const timer1 = setTimeout(() => {
-
-  console.log('timer1')
-
-  const promise2 = Promise.resolve().then(() => {
-
-    console.log('promise2')
-
-  })
-
-}, 0)
-
-
-
-console.log('end');
+// console.log('end');
