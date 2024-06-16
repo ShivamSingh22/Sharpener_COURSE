@@ -14,7 +14,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/NODE_JS/getting_started_with_node/clean_up_code/routes.js"
+            "program": "${workspaceFolder}/NODE_JS/02 ExpressJS/02 easy_chat_app/app.js"
         }
     ]
 }
