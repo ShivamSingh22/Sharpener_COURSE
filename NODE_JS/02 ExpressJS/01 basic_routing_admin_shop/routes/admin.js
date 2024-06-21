@@ -1,7 +1,7 @@
 const path = require('path');
 
 const express = require('express');
-
+const contactController=require('../controllers/contact')
 const rootDir = require('../util/path');
 
 const router = express.Router();
@@ -11,18 +11,11 @@ router.get('/add-product', (req, res, next) => {
   res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
 });
 
-router.get('/contactus', (req,res,next)=>{
-  res.sendFile(path.join(rootDir,'views','contact-us.html'));
-});
+router.get('/contactus', contactController.contactUs);
 
-router.get('/success',(req,res,next)=>{
-  res.sendFile(path.join(rootDir,'views','form_success.html'));
-})
+router.get('/success',contactController.getSuccess);
 
-router.post('/success',(req,res,next)=>{
-  console.log('Form Successfully Filled');
-   res.redirect('/admin/success');
-})
+router.post('/success',contactController.postSuccess);
 // /admin/add-product => POST
 router.post('/add-product', (req, res, next) => {
   console.log(req.body);
