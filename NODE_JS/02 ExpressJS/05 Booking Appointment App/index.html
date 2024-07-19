@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Appointment App</title>
+    <style>
+        .adjust{
+            width: 25%; 
+            margin-left: 37%;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;" >BOOKING APPOINTMENT APP</h1>
+    <br><br><br>
+    <form style="text-align: center; display:flex; flex-direction: column;" onsubmit="handleFormSubmit(event)">
+        <label for="username">Username</label>
+        <input class="adjust" type="text" id="username" name="username">
+        <br>
+        <label class="adjust" for="phone">Phone Number</label>
+        <input class="adjust" type="number" name="phone" id="phone">
+        <br>
+        <label class="adjust" for="email">Email</label>
+        <input class="adjust" type="email" name="email" id="email"><br><br>
+        <button class="adjust" type="submit" id="submitBtn">Submit</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <ul></ul>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
