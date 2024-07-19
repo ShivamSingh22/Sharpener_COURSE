@@ -10,17 +10,11 @@ const sequelize = require('./util/database');
 const app = express();
 app.use(cors());
 
-// app.set('view engine', 'ejs');
-// app.set('views', 'views');
 
 const appRoutes = require('./routes/routes');
-//const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.json({ extended: false }));
-//app.use(express.static(path.join(__dirname, 'public')));
 
-
-//app.use('/admin', adminRoutes);
 app.use(appRoutes);
 
 //app.use(errorController.get404);
