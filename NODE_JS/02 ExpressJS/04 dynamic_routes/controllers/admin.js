@@ -13,13 +13,15 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  Product.create({
-    title: title,
-    imageUrl: imageUrl,
-    price: price,
-    description: description
-  })
-  .then(result => {
+
+  //this method 'createProduct' comes as a part of assosciation hasMany done in app.js
+  req.user.createProduct({
+      title: title,
+      imageUrl: imageUrl,
+      price: price,
+      description: description,
+})
+.then(result => {
     console.log("Product Added!");
     res.redirect('/admin/products');
   })
@@ -32,7 +34,8 @@ exports.getEditProduct = (req, res, next) => {
     return res.redirect('/');
   }
   const prodId = req.params.productId;
-  Product.findByPk(prodId).then(product => {
+  Product.findByPk(prodId)
+  .then(product => {
     if (!product) {
       return res.redirect('/');
     }
