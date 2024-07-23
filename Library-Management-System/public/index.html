@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        #container-1{
+            display: flex;
+            flex-direction: row;
+            border: 2px;
+            border-color: black;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <form onsubmit="handleFormSubmit(event)">
+        <input id="book-input" type="text" placeholder="Enter book name">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="container-1"></div>
+    <h2>Returned Books</h2>
+    <div id="list-div">
+        <ul id="returned-books-list"></ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
