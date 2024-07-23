@@ -8,8 +8,7 @@ const bodyParser = require('body-parser');
 const sequelize = require('./util/database');
 
 const app = express();
-app.use(cors());
-
+app.use(cors()); 
 
 const appRoutes = require('./routes/routes');
 
