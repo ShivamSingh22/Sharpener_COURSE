@@ -1,23 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchBooks();
     fetchReturnedBooks();
-    setInterval(fetchBooks, 60000);//every minute fine update hojayegi
 });
 
 async function handleFormSubmit(event) {
     event.preventDefault();
     const bookName = document.getElementById('book-input').value;
-    const obj={
-        bookName:bookName
-    }
 
     try {
-        await axios.post('http://localhost:3000/book', obj);
+        await axios.post('http://localhost:3000/book', bookName);
         fetchBooks();
     } catch (error) {
         console.error(error);
     }
-    event.target.reset();
 }
 
 async function fetchBooks() {
@@ -35,9 +30,31 @@ async function fetchBooks() {
                 <p>Book Taken On: ${new Date(book.createdAt).toLocaleString()}</p>
                 <p>Book Return Date: ${new Date(book.returnDate).toLocaleString()}</p>
                 <p>Fine: ${book.fine}</p>
-                <button onclick="returnBook(${book.id}, ${book.fine})">Return</button>
+                <button class="btn" onclick="returnBook(${book.id}, ${book.fine})">Return</button>
             `;
             container.appendChild(bookDiv);
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function fetchReturnedBooks() {
+    try {
+        const response = await axios.get('http://localhost:3000/returned-books');
+        const returnedBooks = response.data;
+        const ul = document.getElementById('returned-books-list');
+        ul.innerHTML = '';
+
+        returnedBooks.forEach(book => {
+            const li = document.createElement('li');
+            li.classList.add('book-box');
+            li.innerHTML = `
+                <p>Book Name: ${book.bookName}</p>
+                <p>Returned On: ${new Date(book.returnedAt).toLocaleString()}</p>
+                <p>Fine Paid: ${book.fine}</p>
+            `;
+            ul.appendChild(li);
         });
     } catch (error) {
         console.error(error);
@@ -58,23 +75,6 @@ async function returnBook(bookId, fine) {
 
 async function payFine(bookId) {
     await appendToReturnedBooks(bookId);
-}
-
-async function fetchReturnedBooks() {
-    try {
-        const response = await axios.get('http://localhost:3000/returned-books');
-        const returnedBooks = response.data;
-        const ul = document.getElementById('returned-books-list');
-        ul.innerHTML = '';
-
-        returnedBooks.forEach(book => {
-            const li = document.createElement('li');
-            li.textContent = `Book Name: ${book.bookName}, Returned On: ${new Date(book.returnedAt).toLocaleString()}, Fine Paid: ${book.fine}`;
-            ul.appendChild(li);
-        });
-    } catch (error) {
-        console.error(error);
-    }
 }
 
 async function appendToReturnedBooks(bookId) {
