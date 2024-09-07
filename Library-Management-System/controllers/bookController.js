@@ -1,6 +1,5 @@
 const Book =require('../models/bookModel');
 const ReturnedBook =require('../models/returnBookModel');
-const { Op } = require('sequelize');
 
 exports.getBooks = async(req,res,next)=>{
     try {

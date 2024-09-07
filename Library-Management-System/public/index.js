@@ -8,11 +8,13 @@ async function handleFormSubmit(event) {
     const bookName = document.getElementById('book-input').value;
 
     try {
-        await axios.post('http://localhost:3000/book', bookName);
+        await axios.post('http://localhost:3000/book', {bookName});
         fetchBooks();
+        event.target.reset();
     } catch (error) {
         console.error(error);
     }
+
 }
 
 async function fetchBooks() {
